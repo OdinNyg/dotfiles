@@ -1,0 +1,150 @@
+###---Shortcuts PROGRAMS---###
+
+super + Return
+  kitty
+
+super + w 
+  firefox
+
+super + n 
+  thunar  
+
+
+###---Shortcuts LAUNCHER---###
+
+# program launcher
+super + d
+	rofi -show drun  
+
+# show open window
+super + ctrl + d
+	rofi -modi drun -show window -line-padding 4 \
+                -columns 2 -padding 50 -hide-scrollbar -terminal xfce4-terminal \
+                -show-icons -drun-icon-theme "Arc-X-D" -font "Droid Sans Regular 10"
+
+# show ssh sesssions
+super + shift + d
+	rofi -modi drun -show ssh -line-padding 4 \
+                -columns 2 -padding 50 -hide-scrollbar -terminal xfce4-terminal \
+                -show-icons -drun-icon-theme "Arc-X-D" -font "Droid Sans Regular 10"
+
+# power-menu 
+super + shift + e
+     ~/.config/rofi/powermenu.sh
+
+
+###---bspwm hotkeys---###
+
+# quit/restart bspwm
+super + alt + {q,r}
+	bspc {quit,wm -r}
+
+# Reload sxhkdrc
+super + shift + r
+    pkill -usr1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config'
+
+# close and kill
+super + {_,shift + }q
+	bspc node -{c,k}
+
+
+###---Window MANAGMENT---###
+
+# TILED / FLOATING
+super + {t,s}
+bspc node -t {tiled,floating}
+
+# FUllSCREEN toogle
+super +  f
+  ~/.config/scripts/bspfullscreen
+
+# move/resize (i3 LIKE)
+alt + h
+    /bin/sh $HOME/.config/bspwm/resize/shrinkx.sh
+alt + l
+    /bin/sh $HOME/.config/bspwm/resize/expandx.sh
+alt + k
+    /bin/sh $HOME/.config/bspwm/resize/shrinky.sh
+alt + j
+    /bin/sh $HOME/.config/bspwm/resize/expandy.sh
+
+# move a floating window
+super + shift + {Left,Down,Up,Right}
+	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+###---focus/swap---###
+
+# focus the node in the given direction
+super + {_,shift + }{h,j,k,l}
+	bspc node -{f,s} {west,south,north,east}
+
+super + {_,shift + }{Left,Down,Up,Right}
+	bspc node -{f,s} {west,south,north,east}
+
+# focus or send to the given desktop
+super + alt {_,shift + }{1-9}
+	bspc {desktop -f,node -d} '^{1-9}'
+
+super + {_,shift + }{1-9}
+	bspc {desktop -f,node -d} '^{10,11,12,13,14,15,16,17,18,19}'
+
+ focus the last node/desktop
+super + {grave,Tab}
+	bspc {node,desktop} -f last
+
+
+###---preselect---###
+
+# preselect the direction
+super + ctrl + {h,j,k,l}
+	bspc node -p {west,south,north,east}
+
+super + ctrl + {Left,Down,Up,Right}
+	bspc node -p {west,south,north,east}
+
+
+# preselect the ratio
+super + ctrl + {1-9}
+	bspc node -o 0.{1-9}
+
+# cancel the preselection for the focused node
+super + ctrl + space
+	bspc node -p cancel
+
+
+
+###--- Special hotkeys ---###
+
+
+# Multimedia keys
+XF86AudioRaiseVolume
+  amixer -q set Master 5%+ unmute
+
+# Still multimedia
+XF86AudioLowerVolume
+  amixer -q set Master 5%- unmute
+
+# still
+XF86AudioMute
+  amixer -D pulse sset Master toggle-mute
+  
+# Brightness up
+XF86MonBrightnessUp
+  xbacklight -inc 5
+
+# And brightness down
+XF86MonBrightnessDown
+  xbacklight -dec 5
+
+# Screenshot
+Print
+  scrot -s ~/Pictures/screenshot/Screenshot-$(date +%F_%T).png
+
+super+Print
+  scrot ~/Pictures/screenshot/Screenshot-$(date +%F_%T).png
+
+#Note taking
+super + alt + a
+  sh /home/none/notetaker.sh
+
+
