@@ -89,3 +89,8 @@ alias l='ls'
 alias l.="ls -A | egrep '^\.'"
 alias psgrep="ps aux | grep -v grep | grep -i -e VSZ -e"
 alias dots='/usr/bin/git --git-dir=$HOME/dotfile --work-tree=$HOME'
+alias gaa= git add *
+alias ga= git add
+alias gc= git commit
+alias gs= git status -s
+alias gs
