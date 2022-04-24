@@ -82,10 +82,10 @@ super + {_,shift + }{Left,Down,Up,Right}
 	bspc node -{f,s} {west,south,north,east}
 
 # focus or send to the given desktop
-super + alt {_,shift + }{1-9}
+super + {_,shift + }{1-9}
 	bspc {desktop -f,node -d} '^{1-9}'
 
-super + {_,shift + }{1-9}
+super + alt {_,shift + }{1-9}
 	bspc {desktop -f,node -d} '^{10,11,12,13,14,15,16,17,18,19}'
 
  focus the last node/desktop
