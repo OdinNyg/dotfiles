@@ -140,11 +140,6 @@ XF86MonBrightnessDown
 Print
   scrot -s ~/Pictures/screenshot/Screenshot-$(date +%F_%T).png
 
-super+Print
-  scrot ~/Pictures/screenshot/Screenshot-$(date +%F_%T).png
 
-#Note taking
-super + alt + a
-  sh /home/none/notetaker.sh
 
 
