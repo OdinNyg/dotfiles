@@ -5,7 +5,7 @@ fi
 export ZSH="$HOME/.oh-my-zsh"
 
 
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+source ~/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
 
 autoload -Uz compinit
 compinit
@@ -37,7 +37,6 @@ plugins=(
 	command-not-found
 	emoji-clock
 	sudo
-	thefuck
 	tmux
 	zsh-interactive-cd
 )
